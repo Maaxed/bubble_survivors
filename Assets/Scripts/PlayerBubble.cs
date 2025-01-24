@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bubble : MonoBehaviour
+public class PlayerBubble : MonoBehaviour
 {
     public float baseUpwardSpeed;
     public float inputSpeed;
@@ -36,5 +36,10 @@ public class Bubble : MonoBehaviour
         {
             Kill();
         }
+    }
+
+    public void AddBubble()
+    {
+        health++;
     }
 }

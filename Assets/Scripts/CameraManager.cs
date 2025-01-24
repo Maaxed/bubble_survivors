@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    public Bubble mainCharacter;
+    public PlayerBubble mainCharacter;
 
     private Rigidbody2D rigidBody;
 
