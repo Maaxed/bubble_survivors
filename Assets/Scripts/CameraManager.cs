@@ -4,11 +4,15 @@ public class CameraManager : MonoBehaviour
 {
     public Bubble mainCharacter;
 
-    public float cameraSpeed;
+    private Rigidbody2D rigidBody;
 
-    // Update is called once per frame
+    void Start()
+    {
+        rigidBody = GetComponent<Rigidbody2D>();
+    }
+
     void Update()
     {
-        transform.position += Vector3.up * mainCharacter.baseUpwardSpeed * Time.deltaTime;
+        rigidBody.linearVelocity = Vector3.up * mainCharacter.baseUpwardSpeed;
     }
 }

@@ -3,19 +3,20 @@ using UnityEngine;
 public class Bubble : MonoBehaviour
 {
     public float baseUpwardSpeed;
+    public float inputSpeed;
     
     private Rigidbody2D rigidBody;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        rigidBody.linearVelocity = Vector3.up * baseUpwardSpeed;
+        Vector3 baseUpwardMotion = Vector3.up * baseUpwardSpeed;
+        Vector3 inputVec = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f) * inputSpeed;
+        rigidBody.linearVelocity = baseUpwardMotion + inputVec;
 
     }
 }
