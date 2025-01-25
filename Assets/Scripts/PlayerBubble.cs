@@ -8,9 +8,13 @@ public class PlayerBubble : MonoBehaviour
     public float baseScale;
     public int maxHealth;
     public float invulnerabilityTime;
+    public float abilityCooldownTime;
+    public double abilityPenalty;
 
     public int health = 1;
+    [Header("Private")]
     public float invulnerabilityTimer = 0.0f;
+    public float abilityCooldownTimer = 0.0f;
 
 
     private Rigidbody2D rigidBody;
@@ -35,11 +39,34 @@ public class PlayerBubble : MonoBehaviour
         {
             invulnerabilityTimer -= Time.deltaTime;
         }
+
+        if (abilityCooldownTimer > 0.0f)
+        {
+            abilityCooldownTimer -= Time.deltaTime;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && abilityCooldownTimer <= 0.0f)
+        {
+            ActivateAbility();
+        }
     }
 
     private void UpdateSize()
     {
         transform.localScale = Vector3.one * health * baseScale;
+    }
+
+    public void ActivateAbility()
+    {
+        if (health <= 1)
+        {
+            return;
+        }
+
+        abilityCooldownTimer = abilityCooldownTime;
+        health -= health / 2;
+        ScoreManager.Instance.ApplyPenalty(abilityPenalty);
+        UpdateSize();
     }
 
 

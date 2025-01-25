@@ -175,9 +175,12 @@ MonoBehaviour:
   inputSpeed: 15
   baseScale: 1
   maxHealth: 12
-  invulnerabilityTime: 0.6
+  invulnerabilityTime: 0
+  abilityCooldownTime: 0.2
+  abilityPenalty: 0.2
   health: 1
   invulnerabilityTimer: 0
+  abilityCooldownTimer: 0
 --- !u!50 &6262853163602890171
 Rigidbody2D:
   serializedVersion: 5
