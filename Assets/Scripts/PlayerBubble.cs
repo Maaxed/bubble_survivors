@@ -10,11 +10,14 @@ public class PlayerBubble : MonoBehaviour
     public float invulnerabilityTime;
     public float abilityCooldownTime;
     public double abilityPenalty;
+    public float sizeSpeed;
 
     public int health = 1;
     [Header("Private")]
     public float invulnerabilityTimer = 0.0f;
     public float abilityCooldownTimer = 0.0f;
+
+    public float currentSize = 1.0f;
 
 
     private Rigidbody2D rigidBody;
@@ -24,7 +27,6 @@ public class PlayerBubble : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
-        UpdateSize();
 
         Instance = this;
     }
@@ -49,11 +51,16 @@ public class PlayerBubble : MonoBehaviour
         {
             ActivateAbility();
         }
+        UpdateSize();
     }
 
     private void UpdateSize()
     {
-        transform.localScale = Vector3.one * health * baseScale;
+        float targetSize = health * baseScale;
+
+        currentSize += (targetSize - currentSize) * Mathf.Exp(-Time.deltaTime * Mathf.Exp(sizeSpeed));
+
+        transform.localScale = Vector3.one * currentSize;
     }
 
     public void ActivateAbility()
@@ -66,7 +73,6 @@ public class PlayerBubble : MonoBehaviour
         abilityCooldownTimer = abilityCooldownTime;
         health -= health / 2;
         ScoreManager.Instance.ApplyPenalty(abilityPenalty);
-        UpdateSize();
     }
 
 
@@ -92,16 +98,11 @@ public class PlayerBubble : MonoBehaviour
         {
             Kill();
         }
-        else
-        {
-            UpdateSize();
-        }
     }
 
     public void AddBubble(int value)
     {
         health = Mathf.Min(health + value, maxHealth);
-        UpdateSize();
     }
 
 

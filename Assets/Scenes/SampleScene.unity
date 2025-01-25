@@ -2990,14 +2990,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBubble
       objectReference: {fileID: 0}
-    - target: {fileID: 6036655334140894642, guid: be3d7d10bae09f64fac1e61ba6d697f6, type: 3}
-      propertyPath: inputSpeed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036655334140894642, guid: be3d7d10bae09f64fac1e61ba6d697f6, type: 3}
-      propertyPath: invulnerabilityTime
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6606606188493361036, guid: be3d7d10bae09f64fac1e61ba6d697f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9540373

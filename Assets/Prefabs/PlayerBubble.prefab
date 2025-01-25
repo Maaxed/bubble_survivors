@@ -171,16 +171,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8057ae21956284385e42a45997a143, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseUpwardSpeed: 4
-  inputSpeed: 15
+  baseUpwardSpeed: 3
+  inputSpeed: 10
   baseScale: 1
   maxHealth: 12
   invulnerabilityTime: 0
   abilityCooldownTime: 0.2
   abilityPenalty: 0.2
+  sizeSpeed: 4.2
   health: 1
   invulnerabilityTimer: 0
   abilityCooldownTimer: 0
+  currentSize: 1
 --- !u!50 &6262853163602890171
 Rigidbody2D:
   serializedVersion: 5

@@ -8,7 +8,7 @@ public class HitArea : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerBubble player = collision.GetComponentInParent<PlayerBubble>();
-        if (player != null)
+        if (player != null && enabled)
         {
             player.Hit(damage, scorePenalty);
             enabled = false;
