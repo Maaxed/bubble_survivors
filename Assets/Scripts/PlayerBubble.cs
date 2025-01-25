@@ -17,7 +17,7 @@ public class PlayerBubble : MonoBehaviour
     void Update()
     {
         Vector3 baseUpwardMotion = Vector3.up * baseUpwardSpeed;
-        Vector3 inputVec = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f) * inputSpeed;
+        Vector3 inputVec = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f), 1.0f) * inputSpeed;
         rigidBody.linearVelocity = baseUpwardMotion + inputVec;
     }
 
