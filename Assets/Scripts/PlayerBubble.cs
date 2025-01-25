@@ -15,10 +15,14 @@ public class PlayerBubble : MonoBehaviour
 
     private Rigidbody2D rigidBody;
 
+    public static PlayerBubble Instance { get; private set; }
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         UpdateSize();
+
+        Instance = this;
     }
 
     void Update()

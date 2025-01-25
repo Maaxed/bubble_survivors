@@ -15,4 +15,22 @@ public class CameraManager : MonoBehaviour
     {
         rigidBody.linearVelocity = Vector3.up * mainCharacter.baseUpwardSpeed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Monster monster = collision.GetComponentInParent<Monster>();
+        if (monster != null)
+        {
+            monster.enabled = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Monster monster = collision.GetComponentInParent<Monster>();
+        if (monster != null)
+        {
+            monster.enabled = false;
+        }
+    }
 }

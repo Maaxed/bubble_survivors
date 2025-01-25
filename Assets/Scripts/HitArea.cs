@@ -7,6 +7,10 @@ public class HitArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponentInParent<PlayerBubble>().Hit(damage, scorePenalty);
+        PlayerBubble player = collision.GetComponentInParent<PlayerBubble>();
+        if (player != null)
+        {
+            player.Hit(damage, scorePenalty);
+        }
     }
 }

@@ -7,8 +7,12 @@ public class ExtraBubble : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponentInParent<PlayerBubble>().AddBubble(value);
-        ScoreManager.Instance.AddScore(score);
-        Destroy(gameObject);
+        PlayerBubble player = collision.GetComponentInParent<PlayerBubble>();
+        if (player != null)
+        {
+            player.AddBubble(value);
+            ScoreManager.Instance.AddScore(score);
+            Destroy(gameObject);
+        }
     }
 }

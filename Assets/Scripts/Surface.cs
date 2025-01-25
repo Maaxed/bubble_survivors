@@ -4,6 +4,10 @@ public class Surface : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponentInParent<PlayerBubble>().Win();
+        PlayerBubble player = collision.GetComponentInParent<PlayerBubble>();
+        if (player != null)
+        {
+            player.Win();
+        }
     }
 }
