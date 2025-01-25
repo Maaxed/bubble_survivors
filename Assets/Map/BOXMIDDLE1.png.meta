@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Groupe 7_0
+      name: BOXMIDDLE1
       rect:
         serializedVersion: 2
         x: 0
@@ -154,7 +154,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Groupe 7_0: 2775877637374702171
+      BOXMIDDLE1: 2775877637374702171
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
