@@ -179,6 +179,7 @@ MonoBehaviour:
   abilityCooldownTime: 0.2
   abilityPenalty: 0.2
   sizeSpeed: 4.2
+  speedInertia: 4
   health: 1
   invulnerabilityTimer: 0
   abilityCooldownTimer: 0

@@ -11,6 +11,7 @@ public class PlayerBubble : MonoBehaviour
     public float abilityCooldownTime;
     public double abilityPenalty;
     public float sizeSpeed;
+    public float speedInertia;
 
     public int health = 1;
     [Header("Private")]
@@ -33,9 +34,10 @@ public class PlayerBubble : MonoBehaviour
 
     void Update()
     {
-        Vector3 baseUpwardMotion = Vector3.up * baseUpwardSpeed;
-        Vector3 inputVec = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f), 1.0f) * inputSpeed;
-        rigidBody.linearVelocity = baseUpwardMotion + inputVec;
+        Vector2 baseUpwardMotion = Vector2.up * baseUpwardSpeed;
+        Vector2 inputVec = Vector2.ClampMagnitude(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), 1.0f) * inputSpeed;
+        Vector2 targetVelocity = baseUpwardMotion + inputVec;
+        rigidBody.linearVelocity += (targetVelocity - rigidBody.linearVelocity) * Mathf.Exp(-Time.deltaTime * Mathf.Exp(speedInertia));
 
         if (invulnerabilityTimer > 0.0f)
         {
