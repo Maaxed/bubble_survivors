@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1046411751898870018, guid: 31029e8adb7943f43b5ef82acae8aedf, type: 3}
       propertyPath: m_Name
-      value: Monster1 Variant
+      value: Monster1 Right
       objectReference: {fileID: 0}
     - target: {fileID: 2245662652916101454, guid: 31029e8adb7943f43b5ef82acae8aedf, type: 3}
       propertyPath: m_Sprite
@@ -119,6 +119,14 @@ PrefabInstance:
     - target: {fileID: 4454640661533166598, guid: 31029e8adb7943f43b5ef82acae8aedf, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[9].y
       value: 1.1791667
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318582317355505798, guid: 31029e8adb7943f43b5ef82acae8aedf, type: 3}
+      propertyPath: damage
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5318582317355505798, guid: 31029e8adb7943f43b5ef82acae8aedf, type: 3}
+      propertyPath: scorePenalty
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7513475003925556752, guid: 31029e8adb7943f43b5ef82acae8aedf, type: 3}
       propertyPath: m_LocalScale.x

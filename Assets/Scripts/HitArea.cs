@@ -11,6 +11,7 @@ public class HitArea : MonoBehaviour
         if (player != null)
         {
             player.Hit(damage, scorePenalty);
+            enabled = false;
         }
     }
 }

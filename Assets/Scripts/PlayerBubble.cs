@@ -61,7 +61,7 @@ public class PlayerBubble : MonoBehaviour
 
         ScoreManager.Instance.ApplyPenalty(scorePenalty);
 
-        if (health == 0)
+        if (health <= 0)
         {
             Kill();
         }
