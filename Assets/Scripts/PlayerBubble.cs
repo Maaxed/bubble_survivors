@@ -5,14 +5,20 @@ public class PlayerBubble : MonoBehaviour
 {
     public float baseUpwardSpeed;
     public float inputSpeed;
+    public float baseScale;
+    public int maxHealth;
+    public float invulnerabilityTime;
 
     public int health = 1;
-    
+    public float invulnerabilityTimer = 0.0f;
+
+
     private Rigidbody2D rigidBody;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        UpdateSize();
     }
 
     void Update()
@@ -20,6 +26,16 @@ public class PlayerBubble : MonoBehaviour
         Vector3 baseUpwardMotion = Vector3.up * baseUpwardSpeed;
         Vector3 inputVec = Vector3.ClampMagnitude(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f), 1.0f) * inputSpeed;
         rigidBody.linearVelocity = baseUpwardMotion + inputVec;
+
+        if (invulnerabilityTimer > 0.0f)
+        {
+            invulnerabilityTimer -= Time.deltaTime;
+        }
+    }
+
+    private void UpdateSize()
+    {
+        transform.localScale = Vector3.one * health * baseScale;
     }
 
 
@@ -31,18 +47,30 @@ public class PlayerBubble : MonoBehaviour
         Restartlevel();
     }
 
-    public void Hit()
+    public void Hit(int damage, double scorePenalty)
     {
-        health--;
+        if (invulnerabilityTimer > 0.0f)
+            return;
+
+        health -= damage;
+        invulnerabilityTimer = invulnerabilityTime;
+
+        ScoreManager.Instance.ApplyPenalty(scorePenalty);
+
         if (health == 0)
         {
             Kill();
         }
+        else
+        {
+            UpdateSize();
+        }
     }
 
-    public void AddBubble()
+    public void AddBubble(int value)
     {
-        health++;
+        health = Mathf.Min(health + value, maxHealth);
+        UpdateSize();
     }
 
 
