@@ -172,14 +172,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseUpwardSpeed: 3
-  inputSpeed: 10
+  inputSpeed: 9
   baseScale: 1
   maxHealth: 12
   invulnerabilityTime: 0
   abilityCooldownTime: 0.2
   abilityPenalty: 0.2
-  sizeSpeed: 4.2
-  speedInertia: 4
+  sizeSpeed: 1
+  speedInertia: 1.5
   health: 1
   invulnerabilityTimer: 0
   abilityCooldownTimer: 0
