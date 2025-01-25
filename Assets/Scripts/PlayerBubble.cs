@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBubble : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PlayerBubble : MonoBehaviour
         health = 0;
 
         Debug.Log("Dead !");
+        Restartlevel();
     }
 
     public void Hit()
@@ -41,5 +43,17 @@ public class PlayerBubble : MonoBehaviour
     public void AddBubble()
     {
         health++;
+    }
+
+
+    public void Win()
+    {
+        Debug.Log("You win !");
+        Restartlevel();
+    }
+
+    private void Restartlevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
