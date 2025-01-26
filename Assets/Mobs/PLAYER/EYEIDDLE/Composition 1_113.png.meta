@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: a8e1a716fa56f1644ac1d6dbf3502d62
+guid: dac8a4480d7a5014680335730471d824
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2614197654611963915
-    second: PLAYER_0
+      213: 229562800606559833
+    second: Composition 1_113_0
+  - first:
+      213: -4770571254226384084
+    second: Composition 1_113_1
+  - first:
+      213: -1102839437243024470
+    second: Composition 1_113_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 120
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PLAYER_0
+      name: Composition 1_113_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 387
-        height: 387
+        x: 31
+        y: 80
+        width: 111
+        height: 132
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ffc130751188bbd0800000000000000
-      internalID: -2614197654611963915
+      spriteID: 95e3ccf96229f2300800000000000000
+      internalID: 229562800606559833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Composition 1_113_1
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 75
+        width: 59
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b852848b68bcdb0800000000000000
+      internalID: -4770571254226384084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Composition 1_113_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 83
+        width: 91
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aab76daff5de1b0f0800000000000000
+      internalID: -1102839437243024470
       vertices: []
       indices: 
       edges: []
@@ -138,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PLAYER_0: -2614197654611963915
+      Composition 1_113_0: 229562800606559833
+      Composition 1_113_1: -4770571254226384084
+      Composition 1_113_2: -1102839437243024470
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
