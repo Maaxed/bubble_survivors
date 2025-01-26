@@ -6,5 +6,6 @@ public class WinScreen : MonoBehaviour
     private void OnEnable()
     {
         ScoreUi.SetActive(false);
+        ScoreManager.Instance.CheckHighScore();
     }
 }

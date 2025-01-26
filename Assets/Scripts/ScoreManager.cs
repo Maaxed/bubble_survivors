@@ -7,6 +7,8 @@ public class ScoreManager : MonoBehaviour
     public PlayerBubble player;
     public TMP_Text[] scoreTexts;
     public ScoreNumber scoreNumberPrefab;
+    public TMP_Text inLevelBestScore;
+    public TMP_Text winScreenBestScore;
 
     public float baseDelay;
 
@@ -28,6 +30,9 @@ public class ScoreManager : MonoBehaviour
         Instance = this;
         pointsPerDistance = pointsPerMilisecond * 1000.0f / player.baseUpwardSpeed;
         maxDistance = Mathf.Abs(player.transform.position.y);
+
+        float heighScore = PlayerPrefs.GetFloat("highscore", 0.0f);
+        inLevelBestScore.text = "<mspace=0.4em>" + heighScore.ToString("0.0");
     }
 
     void FixedUpdate()
@@ -86,5 +91,18 @@ public class ScoreManager : MonoBehaviour
     public void ApplyPenalty(double penalty)
     {
         AddScore(-currentScore * penalty);
+    }
+
+    public void CheckHighScore()
+    {
+        float heighScore = PlayerPrefs.GetFloat("highscore", 0.0f);
+
+        if (currentScore > heighScore)
+        {
+            PlayerPrefs.SetFloat("highscore", (float)currentScore);
+            heighScore = (float)currentScore;
+        }
+
+        winScreenBestScore.text = "<mspace=0.4em>" + heighScore.ToString("0.0");
     }
 }
