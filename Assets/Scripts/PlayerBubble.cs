@@ -9,6 +9,7 @@ public class PlayerBubble : MonoBehaviour
     public AudioSource grow;
     public AudioSource shrink;
     public AudioSource pop;
+    public AudioSource music;
 
     public float baseUpwardSpeed;
     public float inputSpeed;
@@ -117,6 +118,7 @@ public class PlayerBubble : MonoBehaviour
         Debug.Log("Dead !");
         Time.timeScale = 0.0f;
         loseScreen.SetActive(true);
+        music.Stop();
     }
 
     public void Hit(int damage, double scorePenalty)
@@ -151,5 +153,6 @@ public class PlayerBubble : MonoBehaviour
         Debug.Log("You win !");
         Time.timeScale = 0.0f;
         winScreen.SetActive(true);
+        music.Stop();
     }
 }
