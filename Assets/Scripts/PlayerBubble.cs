@@ -6,6 +6,10 @@ public class PlayerBubble : MonoBehaviour
     public GameObject loseScreen;
     public GameObject winScreen;
 
+    public AudioSource grow;
+    public AudioSource shrink;
+    public AudioSource pop;
+
     public float baseUpwardSpeed;
     public float inputSpeed;
     public float baseScale;
@@ -101,12 +105,14 @@ public class PlayerBubble : MonoBehaviour
         abilityCooldownTimer = abilityCooldownTime;
         health -= health / 2;
         ScoreManager.Instance.ApplyPenalty(abilityPenalty);
+        shrink.Play();
     }
 
 
     public void Kill()
     {
         health = 0;
+        pop.Play();
 
         Debug.Log("Dead !");
         Time.timeScale = 0.0f;
@@ -127,11 +133,16 @@ public class PlayerBubble : MonoBehaviour
         {
             Kill();
         }
+        else
+        {
+            shrink.Play();
+        }
     }
 
     public void AddBubble(int value)
     {
         health = Mathf.Min(health + value, maxHealth);
+        grow.Play();
     }
 
 
