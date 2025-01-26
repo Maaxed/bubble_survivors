@@ -5,6 +5,7 @@ public class PlayerBubble : MonoBehaviour
 {
     public GameObject loseScreen;
     public GameObject winScreen;
+    public SpriteRenderer hitFeedbackSprite;
 
     public AudioSource grow;
     public AudioSource shrink;
@@ -20,6 +21,8 @@ public class PlayerBubble : MonoBehaviour
     public double abilityPenalty;
     public float sizeSpeed;
     public float speedInertia;
+    public float hitFeedbackInertia;
+    public float hitFeedbackOpacity = 0.0f;
 
     public int health = 1;
     [Header("Private")]
@@ -27,6 +30,7 @@ public class PlayerBubble : MonoBehaviour
     public float abilityCooldownTimer = 0.0f;
 
     public float currentSize = 1.0f;
+    public float currentHitFeedbackOpacity = 0.0f;
 
 
     private bool started = false;
@@ -83,6 +87,15 @@ public class PlayerBubble : MonoBehaviour
         {
             ActivateAbility();
         }
+
+
+        float ta = 1.0f - Mathf.Exp(-Time.unscaledDeltaTime * Mathf.Exp(hitFeedbackInertia));
+        currentHitFeedbackOpacity = Mathf.Lerp(currentHitFeedbackOpacity, 0.0f, ta);
+
+        Color c = hitFeedbackSprite.color;
+        c.a = currentHitFeedbackOpacity;
+        hitFeedbackSprite.color = c;
+
         UpdateSize();
     }
 
@@ -105,7 +118,8 @@ public class PlayerBubble : MonoBehaviour
 
         abilityCooldownTimer = abilityCooldownTime;
         health -= health / 2;
-        ScoreManager.Instance.ApplyPenalty(abilityPenalty);
+        currentHitFeedbackOpacity = hitFeedbackOpacity;
+        ScoreManager.Instance.AddScore(-abilityPenalty);
         shrink.Play();
     }
 
@@ -113,6 +127,7 @@ public class PlayerBubble : MonoBehaviour
     public void Kill()
     {
         health = 0;
+        currentHitFeedbackOpacity = hitFeedbackOpacity;
         pop.Play();
 
         Debug.Log("Dead !");
@@ -130,6 +145,8 @@ public class PlayerBubble : MonoBehaviour
         invulnerabilityTimer = invulnerabilityTime;
 
         ScoreManager.Instance.ApplyPenalty(scorePenalty);
+
+        currentHitFeedbackOpacity = hitFeedbackOpacity;
 
         if (health <= 0)
         {
