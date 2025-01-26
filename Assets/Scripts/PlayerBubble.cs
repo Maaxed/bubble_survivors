@@ -3,6 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBubble : MonoBehaviour
 {
+    public GameObject loseScreen;
+    public GameObject winScreen;
+
     public float baseUpwardSpeed;
     public float inputSpeed;
     public float baseScale;
@@ -64,7 +67,7 @@ public class PlayerBubble : MonoBehaviour
     {
         float targetSize = health * baseScale;
 
-        float t = 1.0f - Mathf.Exp(-Time.deltaTime * Mathf.Exp(sizeSpeed));
+        float t = 1.0f - Mathf.Exp(-Time.unscaledDeltaTime * Mathf.Exp(sizeSpeed));
         currentSize = Mathf.Lerp(currentSize, targetSize, t);
 
         transform.localScale = Vector3.one * currentSize;
@@ -88,7 +91,8 @@ public class PlayerBubble : MonoBehaviour
         health = 0;
 
         Debug.Log("Dead !");
-        Restartlevel();
+        Time.timeScale = 0.0f;
+        loseScreen.SetActive(true);
     }
 
     public void Hit(int damage, double scorePenalty)
@@ -116,11 +120,6 @@ public class PlayerBubble : MonoBehaviour
     public void Win()
     {
         Debug.Log("You win !");
-        Restartlevel();
-    }
-
-    private void Restartlevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        winScreen.SetActive(true);
     }
 }

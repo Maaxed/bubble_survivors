@@ -36,14 +36,14 @@ public class MainCamera : MonoBehaviour
 
         Vector3 target = new Vector3(v * maxCamX, u * maxCamY, 0.0f);
 
-        float t = 1.0f - Mathf.Exp(-Time.deltaTime * Mathf.Exp(posInertia));
+        float t = 1.0f - Mathf.Exp(-Time.unscaledDeltaTime * Mathf.Exp(posInertia));
         transform.localPosition = Vector3.Lerp(transform.localPosition, target, t);
 
 
         float speed = PlayerBubble.Instance.rigidBody.linearVelocity.magnitude / PlayerBubble.Instance.maxSpeed;
         float targetScale = Mathf.Lerp(1.0f, maxCamScale, speed);
 
-        float t1 = 1.0f - Mathf.Exp(-Time.deltaTime * Mathf.Exp(scaleInertia));
+        float t1 = 1.0f - Mathf.Exp(-Time.unscaledDeltaTime * Mathf.Exp(scaleInertia));
         scale = Mathf.Lerp(scale, targetScale, t1);
 
         cam.projectionMatrix = baseMatrix * Matrix4x4.Scale(Vector3.one / scale);

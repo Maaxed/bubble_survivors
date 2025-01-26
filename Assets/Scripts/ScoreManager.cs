@@ -41,17 +41,17 @@ public class ScoreManager : MonoBehaviour
 
     private void Update()
     {
-        if (timeDelay <= Time.deltaTime)
+        if (timeDelay <= Time.unscaledDeltaTime)
         {
             displayedScore = currentScore;
             timeDelay = 0;
         }
         else
         {
-            displayedScore += (currentScore - displayedScore) * Time.deltaTime / timeDelay;
-            timeDelay -= Time.deltaTime;
+            displayedScore += (currentScore - displayedScore) * Time.unscaledDeltaTime / timeDelay;
+            timeDelay -= Time.unscaledDeltaTime;
         }
-        scoreText.text = displayedScore.ToString("0.0");
+        scoreText.text = "<mspace=0.4em>" + displayedScore.ToString("0.0");
     }
 
     public void AddScore(double score)
