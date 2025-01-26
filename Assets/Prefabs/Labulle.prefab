@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Labulle
       objectReference: {fileID: 0}
+    - target: {fileID: 1474342918060019361, guid: ec6bf354b061b5949858499a68ad64ae, type: 3}
+      propertyPath: m_Pitch
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 2620201133256043060, guid: ec6bf354b061b5949858499a68ad64ae, type: 3}
       propertyPath: m_IsActive
       value: 1

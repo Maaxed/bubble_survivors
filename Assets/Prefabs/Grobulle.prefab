@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grobulle
       objectReference: {fileID: 0}
+    - target: {fileID: 1474342918060019361, guid: ec6bf354b061b5949858499a68ad64ae, type: 3}
+      propertyPath: m_Pitch
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474342918060019361, guid: ec6bf354b061b5949858499a68ad64ae, type: 3}
+      propertyPath: m_Volume
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2674108034869973984, guid: ec6bf354b061b5949858499a68ad64ae, type: 3}
       propertyPath: score
       value: 1500
