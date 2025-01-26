@@ -6,6 +6,7 @@ public class ScoreManager : MonoBehaviour
 {
     public PlayerBubble player;
     public TMP_Text[] scoreTexts;
+    public ScoreNumber scoreNumberPrefab;
 
     public float baseDelay;
 
@@ -73,6 +74,13 @@ public class ScoreManager : MonoBehaviour
         {
             currentScore = 0.0;
         }
+
+        bool left = Random.value > 0.5;
+        Vector3 pos = PlayerBubble.Instance.transform.position;
+
+        pos += new Vector3(left ? -1.0f : 1.0f, 1.0f).normalized * (PlayerBubble.Instance.currentSize / 4.0f + 0.1f);
+        ScoreNumber scoreNumber = Instantiate(scoreNumberPrefab, pos, Quaternion.identity, transform);
+        scoreNumber.Init(left, score);
     }
 
     public void ApplyPenalty(double penalty)

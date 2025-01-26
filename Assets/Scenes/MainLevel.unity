@@ -5770,7 +5770,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000001d1ffaaa89de38c8358a7e22
+  m_ApplyToSortingLayers: 000000001d1ffaaa89de38c8358a7e228df057fd
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -9966,7 +9966,7 @@ Transform:
   m_GameObject: {fileID: 1069991511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 435.9, z: -0.09636667}
+  m_LocalPosition: {x: 0, y: 440.03, z: -0.09636667}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22342,6 +22342,7 @@ MonoBehaviour:
   scoreTexts:
   - {fileID: 1985023703}
   - {fileID: 1043724373}
+  scoreNumberPrefab: {fileID: 5455135335212884321, guid: 604b612d173e20646900c49db3161171, type: 3}
   baseDelay: 0.6
   pointsPerMilisecond: 0.005
   maxDistance: 0
@@ -22766,9 +22767,9 @@ SceneRoots:
   - {fileID: 1447523447}
   - {fileID: 631600397}
   - {fileID: 619394802}
-  - {fileID: 2123168288}
   - {fileID: 166405466}
   - {fileID: 1138842134}
   - {fileID: 1159907028}
   - {fileID: 1840213848}
   - {fileID: 912760638}
+  - {fileID: 2123168288}
