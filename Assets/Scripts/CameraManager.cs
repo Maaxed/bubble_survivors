@@ -6,9 +6,12 @@ public class CameraManager : MonoBehaviour
 
     private Rigidbody2D rigidBody;
 
+    public static CameraManager Instance { get; private set; }
+
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        Instance = this;
     }
 
     void Update()
