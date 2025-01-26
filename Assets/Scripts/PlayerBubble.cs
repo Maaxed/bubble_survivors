@@ -74,7 +74,7 @@ public class PlayerBubble : MonoBehaviour
             abilityCooldownTimer -= Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && abilityCooldownTimer <= 0.0f)
+        if (Input.GetAxis("Jump") > 0.01 && abilityCooldownTimer <= 0.0f)
         {
             ActivateAbility();
         }
