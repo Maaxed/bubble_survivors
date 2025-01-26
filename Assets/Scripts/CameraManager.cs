@@ -13,7 +13,7 @@ public class CameraManager : MonoBehaviour
 
     void Update()
     {
-        rigidBody.linearVelocity = Vector3.up * mainCharacter.baseUpwardSpeed;
+        rigidBody.linearVelocity = Vector3.up * mainCharacter.CurrentUpwardSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

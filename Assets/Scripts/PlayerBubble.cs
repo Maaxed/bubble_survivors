@@ -24,6 +24,10 @@ public class PlayerBubble : MonoBehaviour
     public float currentSize = 1.0f;
 
 
+    private bool started = false;
+
+    public float CurrentUpwardSpeed => started ? baseUpwardSpeed : 0.0f;
+
     public Rigidbody2D rigidBody { get; private set; }
     public float maxSpeed { get; private set; }
 
@@ -40,8 +44,22 @@ public class PlayerBubble : MonoBehaviour
 
     void Update()
     {
-        Vector2 baseUpwardMotion = Vector2.up * baseUpwardSpeed;
         Vector2 inputVec = Vector2.ClampMagnitude(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")), 1.0f) * inputSpeed;
+
+        if (!started)
+        {
+            if (inputVec.sqrMagnitude > 0.01)
+            {
+                // start moving
+                started = true;
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        Vector2 baseUpwardMotion = Vector2.up * baseUpwardSpeed;
         Vector2 targetVelocity = baseUpwardMotion + inputVec;
         float t = 1.0f - Mathf.Exp(-Time.deltaTime * Mathf.Exp(speedInertia));
         rigidBody.linearVelocity = Vector2.Lerp(rigidBody.linearVelocity, targetVelocity, t);
