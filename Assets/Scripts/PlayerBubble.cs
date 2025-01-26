@@ -120,6 +120,7 @@ public class PlayerBubble : MonoBehaviour
     public void Win()
     {
         Debug.Log("You win !");
+        Time.timeScale = 0.0f;
         winScreen.SetActive(true);
     }
 }
