@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public PlayerBubble player;
-    public TMP_Text scoreText;
+    public TMP_Text[] scoreTexts;
 
     public float baseDelay;
 
@@ -51,7 +51,11 @@ public class ScoreManager : MonoBehaviour
             displayedScore += (currentScore - displayedScore) * Time.unscaledDeltaTime / timeDelay;
             timeDelay -= Time.unscaledDeltaTime;
         }
-        scoreText.text = "<mspace=0.4em>" + displayedScore.ToString("0.0");
+
+        foreach (TMP_Text scoreText in scoreTexts)
+        {
+            scoreText.text = "<mspace=0.4em>" + displayedScore.ToString("0.0");
+        }
     }
 
     public void AddScore(double score)
